@@ -81,6 +81,29 @@ float QuyDoiDiem(float diem) {
 	return 0.0;
 }
 
+void SapXepTangDan(SinhVien sv[], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (sv[i].DiemTongKet > sv[j].DiemTongKet) {
+				SinhVien temp = sv[i];
+				sv[i] = sv[j];
+				sv[j] = temp;
+			}
+		}
+	}
+}
+
+void SapXepGiamDan(SinhVien sv[], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (sv[i].DiemTongKet < sv[j].DiemTongKet) {
+				SinhVien temp = sv[i];
+				sv[i] = sv[j];
+				sv[j] = temp;
+			}
+		}
+	}
+}
 
 int main() {
 	SinhVien sv[50];
@@ -108,6 +131,14 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		printf("%s - %.2f\n", sv[i].hoten, QuyDoiDiem(sv[i].DiemTongKet));
 	}
+
+	SapXepTangDan(sv, n);
+	printf("Danh sach sinh vien sap xep tang dan theo diem tong ket:\n");
+	XuatDanhSachSinhVien(sv, n);
+
+	SapXepGiamDan(sv, n);
+	printf("Danh sach sinh vien sap xep giam dan theo diem tong ket:\n");
+	XuatDanhSachSinhVien(sv, n);
 
 	return 0;
 }
