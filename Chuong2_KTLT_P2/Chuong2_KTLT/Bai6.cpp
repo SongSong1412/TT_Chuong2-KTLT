@@ -65,6 +65,30 @@ void NghichDao(PhanSo ps[], int n) {
 	}
 }
 
+void SapXepTangDan(PhanSo ps[], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if ((float)ps[i].tu / ps[i].mau >(float)ps[j].tu / ps[j].mau) {
+				PhanSo temp = ps[i];
+				ps[i] = ps[j];
+				ps[j] = temp;
+			}
+		}
+	}
+}
+
+void SapXepGiamDan(PhanSo ps[], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if ((float)ps[i].tu / ps[i].mau < (float)ps[j].tu / ps[j].mau) {
+				PhanSo temp = ps[i];
+				ps[i] = ps[j];
+				ps[j] = temp;
+			}
+		}
+	}
+}
+
 int main() {
 	PhanSo ps[50];
 	int n;
@@ -89,6 +113,14 @@ int main() {
 
 	NghichDao(ps, n);
 	printf("Nghich dao cac phan so: ");
+	XuatDanhSach(ps, n);
+
+	SapXepTangDan(ps, n);
+	printf("Sap xep tang dan: ");
+	XuatDanhSach(ps, n);
+
+	SapXepGiamDan(ps, n);
+	printf("Sap xep giam dan: ");
 	XuatDanhSach(ps, n);
 
 	return 0;
