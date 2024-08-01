@@ -19,6 +19,26 @@ void XuatDanhSach(PhanSo ps[], int n) {
 	printf("\n");
 }
 
+PhanSo TimMax(PhanSo ps[], int n) {
+	PhanSo max = ps[0];
+	for (int i = 1; i < n; i++) {
+		if ((float)ps[i].tu / ps[i].mau >(float)max.tu / max.mau) {
+			max = ps[i];
+		}
+	}
+	return max;
+}
+
+PhanSo TimMin(PhanSo ps[], int n) {
+	PhanSo min = ps[0];
+	for (int i = 1; i < n; i++) {
+		if ((float)ps[i].tu / ps[i].mau < (float)min.tu / min.mau) {
+			min = ps[i];
+		}
+	}
+	return min;
+}
+
 
 int main() {
 	PhanSo ps[50];
@@ -30,6 +50,11 @@ int main() {
 	NhapDanhSach(ps, n);
 	printf("Danh sach cac phan so: ");
 	XuatDanhSach(ps, n);
+
+	PhanSo max = TimMax(ps, n);
+	PhanSo min = TimMin(ps, n);
+	printf("Phan so lon nhat: %d/%d\n", max.tu, max.mau);
+	printf("Phan so nho nhat: %d/%d\n", min.tu, min.mau);
 
 	return 0;
 }
