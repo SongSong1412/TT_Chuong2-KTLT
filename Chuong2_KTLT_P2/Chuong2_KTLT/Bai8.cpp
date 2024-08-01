@@ -127,6 +127,27 @@ void SapXepGiamDan(SinhVien sv[], int n) {
 }
 
 
+void XepLoaiHocTap(SinhVien sv[], int n) {
+	for (int i = 0; i < n; i++) {
+		printf("%s - ", sv[i].HoTen);
+		if (sv[i].DiemTB >= 8.5) {
+			printf("Xuat sac\n");
+		}
+		else if (sv[i].DiemTB >= 7.0) {
+			printf("Gioi\n");
+		}
+		else if (sv[i].DiemTB >= 5.5) {
+			printf("Kha\n");
+		}
+		else if (sv[i].DiemTB >= 4.0) {
+			printf("Trung binh\n");
+		}
+		else {
+			printf("Yeu\n");
+		}
+	}
+}
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -174,5 +195,8 @@ int main() {
 	SapXepGiamDan(sv, n);
 	printf("Danh sach sinh vien sap xep giam dan theo diem trung binh:\n");
 	XuatDanhSachSinhVien(sv, n);
+
+	printf("Xep loai hoc tap cua sinh vien:\n");
+	XepLoaiHocTap(sv, n);
 	return 0;
 }
