@@ -102,6 +102,31 @@ void XoaSinhVien(SinhVien sv[], int *n, char maSV[]) {
 	}
 }
 
+void SapXepTangDan(SinhVien sv[], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (sv[i].DiemTB > sv[j].DiemTB) {
+				SinhVien temp = sv[i];
+				sv[i] = sv[j];
+				sv[j] = temp;
+			}
+		}
+	}
+}
+
+void SapXepGiamDan(SinhVien sv[], int n) {
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (sv[i].DiemTB < sv[j].DiemTB) {
+				SinhVien temp = sv[i];
+				sv[i] = sv[j];
+				sv[j] = temp;
+			}
+		}
+	}
+}
+
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -140,6 +165,14 @@ int main() {
 	scanf("%s", maSV);
 	XoaSinhVien(sv, &n, maSV);
 	printf("Danh sach sinh vien sau khi xoa:\n");
+	XuatDanhSachSinhVien(sv, n);
+
+	SapXepTangDan(sv, n);
+	printf("Danh sach sinh vien sap xep tang dan theo diem trung binh:\n");
+	XuatDanhSachSinhVien(sv, n);
+
+	SapXepGiamDan(sv, n);
+	printf("Danh sach sinh vien sap xep giam dan theo diem trung binh:\n");
 	XuatDanhSachSinhVien(sv, n);
 	return 0;
 }
