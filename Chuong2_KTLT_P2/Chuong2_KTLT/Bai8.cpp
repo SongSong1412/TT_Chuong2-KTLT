@@ -148,6 +148,22 @@ void XepLoaiHocTap(SinhVien sv[], int n) {
 	}
 }
 
+void ThongKeMonHoc(SinhVien sv[], int n) {
+	for (int i = 0; i < n; i++) {
+		int SoMonDat = 0;
+		int SoMonRot = 0;
+		for (int j = 0; j < 5; j++) {
+			if (sv[i].MonHoc[j].Diem >= 4.0) {
+				SoMonDat++;
+			}
+			else {
+				SoMonRot++;
+			}
+		}
+		printf("%s - So mon dat: %d, So mon rot: %d\n", sv[i].HoTen, SoMonDat, SoMonRot);
+	}
+}
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -198,5 +214,8 @@ int main() {
 
 	printf("Xep loai hoc tap cua sinh vien:\n");
 	XepLoaiHocTap(sv, n);
+
+	printf("Thong ke mon hoc cua sinh vien:\n");
+	ThongKeMonHoc(sv, n);
 	return 0;
 }
