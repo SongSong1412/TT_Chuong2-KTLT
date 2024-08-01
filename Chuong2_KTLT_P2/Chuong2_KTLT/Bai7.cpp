@@ -105,6 +105,14 @@ void SapXepGiamDan(SinhVien sv[], int n) {
 	}
 }
 
+float TinhDiemTrungBinh(SinhVien sv[], int n) {
+	float tong = 0;
+	for (int i = 0; i < n; i++) {
+		tong += sv[i].DiemTongKet;
+	}
+	return tong / n;
+}
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -139,6 +147,9 @@ int main() {
 	SapXepGiamDan(sv, n);
 	printf("Danh sach sinh vien sap xep giam dan theo diem tong ket:\n");
 	XuatDanhSachSinhVien(sv, n);
+
+	float DiemTrungBinh = TinhDiemTrungBinh(sv, n);
+	printf("Diem trung binh cua tat ca sinh vien: %.2f\n", DiemTrungBinh);
 
 	return 0;
 }
