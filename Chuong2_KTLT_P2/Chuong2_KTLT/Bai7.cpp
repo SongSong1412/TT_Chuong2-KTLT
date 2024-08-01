@@ -73,6 +73,15 @@ int DemSinhVienDat(SinhVien sv[], int n) {
 	return count;
 }
 
+float QuyDoiDiem(float diem) {
+	if (diem >= 8.5) return 4.0;
+	if (diem >= 7.0) return 3.0;
+	if (diem >= 5.5) return 2.0;
+	if (diem >= 4.0) return 1.0;
+	return 0.0;
+}
+
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -95,6 +104,10 @@ int main() {
 	printf("So sinh vien dat: %d\n", SoSinhVienDat);
 	printf("So sinh vien khong dat: %d\n", SoSinhVienKhongDat);
 
+	printf("Danh sach sinh vien sau khi quy doi diem sang he 4:\n");
+	for (int i = 0; i < n; i++) {
+		printf("%s - %.2f\n", sv[i].hoten, QuyDoiDiem(sv[i].DiemTongKet));
+	}
 
 	return 0;
 }
