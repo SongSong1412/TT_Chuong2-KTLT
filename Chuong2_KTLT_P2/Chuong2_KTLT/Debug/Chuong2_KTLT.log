@@ -1,4 +1,4 @@
-﻿Build started 8/1/2024 10:10:29 PM.
+﻿Build started 8/1/2024 10:18:46 PM.
      1>Project "D:\download\LeNgocDinhTri_KTLT\Chuong2_KTLT_P2\Chuong2_KTLT\Chuong2_KTLT.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\download\visual studio 2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Bai8.cpp
@@ -15,9 +15,9 @@
                  d:\download\visual studio 2013\vc\include\stdio.h(283) : see declaration of 'scanf'
      1>d:\download\lengocdinhtri_ktlt\chuong2_ktlt_p2\chuong2_ktlt\bai8.cpp(34): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\download\visual studio 2013\vc\include\stdio.h(283) : see declaration of 'scanf'
-     1>d:\download\lengocdinhtri_ktlt\chuong2_ktlt_p2\chuong2_ktlt\bai8.cpp(85): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\download\lengocdinhtri_ktlt\chuong2_ktlt_p2\chuong2_ktlt\bai8.cpp(95): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\download\visual studio 2013\vc\include\stdio.h(283) : see declaration of 'scanf'
-     1>d:\download\lengocdinhtri_ktlt\chuong2_ktlt_p2\chuong2_ktlt\bai8.cpp(94): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\download\lengocdinhtri_ktlt\chuong2_ktlt_p2\chuong2_ktlt\bai8.cpp(104): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\download\visual studio 2013\vc\include\stdio.h(283) : see declaration of 'scanf'
        Link:
          D:\download\visual studio 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\download\LeNgocDinhTri_KTLT\Chuong2_KTLT_P2\Debug\Chuong2_KTLT.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\download\LeNgocDinhTri_KTLT\Chuong2_KTLT_P2\Debug\Chuong2_KTLT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\download\LeNgocDinhTri_KTLT\Chuong2_KTLT_P2\Debug\Chuong2_KTLT.lib" /MACHINE:X86 Debug\Bai6.obj
@@ -28,4 +28,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.60
+Time Elapsed 00:00:00.70

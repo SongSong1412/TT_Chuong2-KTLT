@@ -77,6 +77,16 @@ int TimSinhVienTheoMa(SinhVien sv[], int n, char maSV[]) {
 	return -1;
 }
 
+SinhVien TimSinhVienDiemTBCaoNhat(SinhVien sv[], int n) {
+	SinhVien max = sv[0];
+	for (int i = 1; i < n; i++) {
+		if (sv[i].DiemTB > max.DiemTB) {
+			max = sv[i];
+		}
+	}
+	return max;
+}
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -100,5 +110,8 @@ int main() {
 	else {
 		printf("Khong tim thay sinh vien\n");
 	}
+
+	SinhVien max = TimSinhVienDiemTBCaoNhat(sv, n);
+	printf("Sinh vien co diem trung binh cao nhat: %s - %.2f\n", max.HoTen, max.DiemTB);
 	return 0;
 }
