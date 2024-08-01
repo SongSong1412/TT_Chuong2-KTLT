@@ -43,7 +43,7 @@ void XuatDanhSachSinhVien(SinhVien sv[], int n) {
 	}
 }
 
-SinhVien timSinhVienDiemCaoNhat(SinhVien sv[], int n) {
+SinhVien TimSinhVienDiemCaoNhat(SinhVien sv[], int n) {
 	SinhVien max = sv[0];
 	for (int i = 1; i < n; i++) {
 		if (sv[i].DiemTongKet > max.DiemTongKet) {
@@ -53,7 +53,7 @@ SinhVien timSinhVienDiemCaoNhat(SinhVien sv[], int n) {
 	return max;
 }
 
-SinhVien timSinhVienDiemThapNhat(SinhVien sv[], int n) {
+SinhVien TimSinhVienDiemThapNhat(SinhVien sv[], int n) {
 	SinhVien min = sv[0];
 	for (int i = 1; i < n; i++) {
 		if (sv[i].DiemTongKet < min.DiemTongKet) {
@@ -61,6 +61,16 @@ SinhVien timSinhVienDiemThapNhat(SinhVien sv[], int n) {
 		}
 	}
 	return min;
+}
+
+int DemSinhVienDat(SinhVien sv[], int n) {
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		if (sv[i].DiemTongKet >= 4.0) {
+			count++;
+		}
+	}
+	return count;
 }
 
 int main() {
@@ -75,10 +85,16 @@ int main() {
 	printf("Danh sach sinh vien:\n");
 	XuatDanhSachSinhVien(sv, n);
 
-	SinhVien max = timSinhVienDiemCaoNhat(sv, n);
-	SinhVien min = timSinhVienDiemThapNhat(sv, n);
+	SinhVien max = TimSinhVienDiemCaoNhat(sv, n);
+	SinhVien min = TimSinhVienDiemThapNhat(sv, n);
 	printf("Sinh vien co diem tong ket cao nhat: %s - %.2f\n", max.hoten, max.DiemTongKet);
 	printf("Sinh vien co diem tong ket thap nhat: %s - %.2f\n", min.hoten, min.DiemTongKet);
+
+	int SoSinhVienDat = DemSinhVienDat(sv, n);
+	int SoSinhVienKhongDat = n - SoSinhVienDat;
+	printf("So sinh vien dat: %d\n", SoSinhVienDat);
+	printf("So sinh vien khong dat: %d\n", SoSinhVienKhongDat);
+
 
 	return 0;
 }
