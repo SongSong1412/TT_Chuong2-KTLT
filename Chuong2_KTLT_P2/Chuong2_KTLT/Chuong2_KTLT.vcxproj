@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClCompile Include="Bai6.cpp" />
     <ClCompile Include="Bai7.cpp" />
+    <ClCompile Include="Bai8.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />
