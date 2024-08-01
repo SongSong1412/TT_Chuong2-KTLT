@@ -87,6 +87,21 @@ SinhVien TimSinhVienDiemTBCaoNhat(SinhVien sv[], int n) {
 	return max;
 }
 
+void ThemSinhVien(SinhVien sv[], int *n, SinhVien newSV) {
+	sv[*n] = newSV;
+	(*n)++;
+}
+
+void XoaSinhVien(SinhVien sv[], int *n, char maSV[]) {
+	int idx = TimSinhVienTheoMa(sv, *n, maSV);
+	if (idx != -1) {
+		for (int i = idx; i < *n - 1; i++) {
+			sv[i] = sv[i + 1];
+		}
+		(*n)--;
+	}
+}
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -113,5 +128,18 @@ int main() {
 
 	SinhVien max = TimSinhVienDiemTBCaoNhat(sv, n);
 	printf("Sinh vien co diem trung binh cao nhat: %s - %.2f\n", max.HoTen, max.DiemTB);
+
+	SinhVien NewSV;
+	printf("Nhap thong tin sinh vien moi:\n");
+	NhapSinhVien(&NewSV);
+	ThemSinhVien(sv, &n, NewSV);
+	printf("Danh sach sinh vien sau khi them:\n");
+	XuatDanhSachSinhVien(sv, n);
+
+	printf("Nhap ma so sinh vien can xoa: ");
+	scanf("%s", maSV);
+	XoaSinhVien(sv, &n, maSV);
+	printf("Danh sach sinh vien sau khi xoa:\n");
+	XuatDanhSachSinhVien(sv, n);
 	return 0;
 }
