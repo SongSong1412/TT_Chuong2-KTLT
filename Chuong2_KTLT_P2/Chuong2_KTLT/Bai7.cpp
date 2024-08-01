@@ -113,6 +113,30 @@ float TinhDiemTrungBinh(SinhVien sv[], int n) {
 	return tong / n;
 }
 
+void GhiDanhSachSinhVien(SinhVien sv[], int n, const char *Text) {
+	FILE *file = fopen(Text, "w");
+	if (file == NULL) {
+		printf("Khong the mo file %s\n", Text);
+		return;
+	}
+	for (int i = 0; i < n; i++) {
+		fprintf(file, "%d %s %s %.2f %.2f %.2f\n", sv[i].stt, sv[i].mssv, sv[i].hoten, sv[i].DiemTieuLuan, sv[i].DiemThiKetThucMon, sv[i].DiemTongKet);
+	}
+	fclose(file);
+}
+
+void docDanhSachSinhVien(SinhVien sv[], int *n, const char *filename) {
+	FILE *file = fopen(filename, "r");
+	if (file == NULL) {
+		printf("Khong the mo file %s\n", filename);
+		return;
+	}
+	*n = 0;
+	while (fscanf(file, "%d %s %s %f %f %f", &sv[*n].stt, sv[*n].mssv, sv[*n].hoten, &sv[*n].DiemTieuLuan, &sv[*n].DiemThiKetThucMon, &sv[*n].DiemTongKet) == 6) {
+		(*n)++;
+	}
+	fclose(file);
+}
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -151,5 +175,10 @@ int main() {
 	float DiemTrungBinh = TinhDiemTrungBinh(sv, n);
 	printf("Diem trung binh cua tat ca sinh vien: %.2f\n", DiemTrungBinh);
 
+	const char *filename = "Text.txt";
+	GhiDanhSachSinhVien(sv, n, filename);
+	printf("Da ghi danh sach sinh vien vao file %s\n", filename);
+
 	return 0;
+
 }
