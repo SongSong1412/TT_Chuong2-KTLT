@@ -43,6 +43,26 @@ void XuatDanhSachSinhVien(SinhVien sv[], int n) {
 	}
 }
 
+SinhVien timSinhVienDiemCaoNhat(SinhVien sv[], int n) {
+	SinhVien max = sv[0];
+	for (int i = 1; i < n; i++) {
+		if (sv[i].DiemTongKet > max.DiemTongKet) {
+			max = sv[i];
+		}
+	}
+	return max;
+}
+
+SinhVien timSinhVienDiemThapNhat(SinhVien sv[], int n) {
+	SinhVien min = sv[0];
+	for (int i = 1; i < n; i++) {
+		if (sv[i].DiemTongKet < min.DiemTongKet) {
+			min = sv[i];
+		}
+	}
+	return min;
+}
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -54,6 +74,11 @@ int main() {
 
 	printf("Danh sach sinh vien:\n");
 	XuatDanhSachSinhVien(sv, n);
+
+	SinhVien max = timSinhVienDiemCaoNhat(sv, n);
+	SinhVien min = timSinhVienDiemThapNhat(sv, n);
+	printf("Sinh vien co diem tong ket cao nhat: %s - %.2f\n", max.hoten, max.DiemTongKet);
+	printf("Sinh vien co diem tong ket thap nhat: %s - %.2f\n", min.hoten, min.DiemTongKet);
 
 	return 0;
 }
