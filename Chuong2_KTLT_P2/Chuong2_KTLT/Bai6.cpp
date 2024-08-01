@@ -39,6 +39,23 @@ PhanSo TimMin(PhanSo ps[], int n) {
 	return min;
 }
 
+PhanSo TinhTong(PhanSo ps[], int n) {
+	PhanSo tong = { 0, 1 };
+	for (int i = 0; i < n; i++) {
+		tong.tu = tong.tu * ps[i].mau + ps[i].tu * tong.mau;
+		tong.mau = tong.mau * ps[i].mau;
+	}
+	return tong;
+}
+
+PhanSo TinhTich(PhanSo ps[], int n) {
+	PhanSo tich = { 1, 1 };
+	for (int i = 0; i < n; i++) {
+		tich.tu *= ps[i].tu;
+		tich.mau *= ps[i].mau;
+	}
+	return tich;
+}
 
 int main() {
 	PhanSo ps[50];
@@ -55,6 +72,12 @@ int main() {
 	PhanSo min = TimMin(ps, n);
 	printf("Phan so lon nhat: %d/%d\n", max.tu, max.mau);
 	printf("Phan so nho nhat: %d/%d\n", min.tu, min.mau);
+
+	PhanSo tong = TinhTong(ps, n);
+	printf("Tong cac phan so: %d/%d\n", tong.tu, tong.mau);
+
+	PhanSo tich = TinhTich(ps, n);
+	printf("Tich cac phan so: %d/%d\n", tich.tu, tich.mau);
 
 	return 0;
 }
