@@ -68,6 +68,15 @@ void XuatDanhSachSinhVien(SinhVien sv[], int n) {
 	}
 }
 
+int TimSinhVienTheoMa(SinhVien sv[], int n, char maSV[]) {
+	for (int i = 0; i < n; i++) {
+		if (strcmp(sv[i].MaSV, maSV) == 0) {
+			return i;
+		}
+	}
+	return -1;
+}
+
 int main() {
 	SinhVien sv[50];
 	int n;
@@ -80,5 +89,16 @@ int main() {
 	printf("Danh sach sinh vien:\n");
 	XuatDanhSachSinhVien(sv, n);
 
+	char maSV[20];
+	printf("Nhap ma so sinh vien can tim: ");
+	scanf("%s", maSV);
+	int idx = TimSinhVienTheoMa(sv, n, maSV);
+	if (idx != -1) {
+		printf("Thong tin sinh vien tim thay:\n");
+		XuatSinhVien(sv[idx]);
+	}
+	else {
+		printf("Khong tim thay sinh vien\n");
+	}
 	return 0;
 }
