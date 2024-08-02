@@ -80,6 +80,14 @@ int TongPhanTuLonHonTTDPhanTuSauNo(int a[][100], int m, int n) {
 	}
 	return tong;
 }
+
+int TongDongk(int a[][100], int m, int n, int k) {
+	int tong = 0;
+	for (int j = 0; j < n; j++) {
+		tong += a[k][j];
+	}
+	return tong;
+}
 int main() {
 	int a[100][100];
 	int m, n;
@@ -105,5 +113,9 @@ int main() {
 
 	printf("Tong cac phan tu lon hon tri tuyet doi cua phan tu lien sau no: %d\n", TongPhanTuLonHonTTDPhanTuSauNo(a, m, n));
 
+	int k;
+	printf("Nhap dong k: ");
+	scanf("%d", &k);
+	printf("Tong gia tri tren dong k cua ma tran: %d\n", TongDongk(a, m, n, k));
 	return 0;
 }
