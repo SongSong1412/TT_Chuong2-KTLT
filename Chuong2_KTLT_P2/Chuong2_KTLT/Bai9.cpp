@@ -100,6 +100,18 @@ int TongGiaTriBien(int a[][100], int m, int n) {
 	}
 	return tong;
 }
+
+int TanXuatGiaTriX(int a[][100], int m, int n, int x) {
+	int Dem = 0;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			if (a[i][j] == x) {
+				Dem++;
+			}
+		}
+	}
+	return Dem;
+}
 int main() {
 	int a[100][100];
 	int m, n;
@@ -131,5 +143,10 @@ int main() {
 	printf("Tong gia tri tren dong k cua ma tran: %d\n", TongDongk(a, m, n, k));
 
 	printf("Tong cac gia tri nam tren bien cua ma tran: %d\n", TongGiaTriBien(a, m, n));
+
+	int x;
+	printf("Nhap gia tri x: ");
+	scanf("%d", &x);
+	printf("Tan suat xuat hien cua gia tri x trong ma tran: %d\n", TanXuatGiaTriX(a, m, n, x));
 	return 0;
 }
