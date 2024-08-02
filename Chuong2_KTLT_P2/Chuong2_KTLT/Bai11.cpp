@@ -66,6 +66,44 @@ void SapXepCotChanLe(int a[][100], int m, int n) {
 	}
 }
 
+void SapXepZicZac(int a[][100], int m, int n) {
+	int arr[10000];
+	int k = 0;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			arr[k++] = a[i][j];
+		}
+	}
+	SapXepTang(arr, k);
+	k = 0;
+	for (int i = 0; i < m; i++) {
+		if (i % 2 == 0) {
+			for (int j = 0; j < n; j++) {
+				a[i][j] = arr[k++];
+			}
+		}
+		else {
+			for (int j = n - 1; j >= 0; j--) {
+				a[i][j] = arr[k++];
+			}
+		}
+	}
+	SapXepGiam(arr, k);
+	k = 0;
+	for (int i = 0; i < m; i++) {
+		if (i % 2 != 0) {
+			for (int j = 0; j < n; j++) {
+				a[i][j] = arr[k++];
+			}
+		}
+		else {
+			for (int j = n - 1; j >= 0; j--) {
+				a[i][j] = arr[k++];
+			}
+		}
+	}
+}
+
 int main() {
 	int a[100][100];
 	int m, n;
@@ -97,6 +135,15 @@ int main() {
 	TaoMangNgauNhien(a, m, n);
 	SapXepCotChanLe(a, m, n);
 	printf("Ma tran sau khi sap xep cot chan tang cot le giam:\n");
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			printf("%d ", a[i][j]);
+		}
+		printf("\n");
+	}
+	TaoMangNgauNhien(a, m, n);
+	SapXepZicZac(a, m, n);
+	printf("Ma tran sau khi sap xep tang dan theo zic-zac:\n");
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			printf("%d ", a[i][j]);
