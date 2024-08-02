@@ -112,6 +112,29 @@ int TanXuatGiaTriX(int a[][100], int m, int n, int x) {
 	}
 	return Dem;
 }
+
+void DemPhanTu(int a[][100], int m, int n, int *Chan, int *Le, int *Am, int *Duong, int *NguyenTo) {
+	*Chan = *Le = *Am = *Duong = *NguyenTo = 0;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			if (a[i][j] % 2 == 0) {
+				(*Chan)++;
+			}
+			else {
+				(*Le)++;
+			}
+			if (a[i][j] < 0) {
+				(*Am)++;
+			}
+			else if (a[i][j] > 0) {
+				(*Duong)++;
+			}
+			if (SoNguyenTo(a[i][j])) {
+				(*NguyenTo)++;
+			}
+		}
+	}
+}
 int main() {
 	int a[100][100];
 	int m, n;
@@ -148,5 +171,14 @@ int main() {
 	printf("Nhap gia tri x: ");
 	scanf("%d", &x);
 	printf("Tan suat xuat hien cua gia tri x trong ma tran: %d\n", TanXuatGiaTriX(a, m, n, x));
+
+	int Chan, Le, Am, Duong, NguyenTo;
+	DemPhanTu(a, m, n, &Chan, &Le, &Am, &Duong, &NguyenTo);
+	printf("So luong phan tu chan: %d\n", Chan);
+	printf("So luong phan tu le: %d\n", Le);
+	printf("So luong phan tu am: %d\n", Am);
+	printf("So luong phan tu duong: %d\n", Duong);
+	printf("So luong phan tu nguyen to: %d\n", NguyenTo);
+
 	return 0;
 }
