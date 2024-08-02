@@ -68,6 +68,18 @@ void LietKeSoHoanThien(int a[][100], int m, int n) {
 	}
 	printf("\n");
 }
+
+int TongPhanTuLonHonTTDPhanTuSauNo(int a[][100], int m, int n) {
+	int tong = 0;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n - 1; j++) {
+			if (a[i][j] > abs(a[i][j + 1])) {
+				tong += a[i][j];
+			}
+		}
+	}
+	return tong;
+}
 int main() {
 	int a[100][100];
 	int m, n;
@@ -90,5 +102,8 @@ int main() {
 	printf("Tong cac phan tu co chu so dau la chu so le: %d\n", TongChuSoLe(a, m, n));
 
 	LietKeSoHoanThien(a, m, n);
+
+	printf("Tong cac phan tu lon hon tri tuyet doi cua phan tu lien sau no: %d\n", TongPhanTuLonHonTTDPhanTuSauNo(a, m, n));
+
 	return 0;
 }
