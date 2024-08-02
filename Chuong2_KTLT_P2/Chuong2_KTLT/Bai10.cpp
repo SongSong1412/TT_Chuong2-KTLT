@@ -56,6 +56,32 @@ void LietKeTongNhoNhat(int a[][100], int m, int n) {
 	printf("\n");
 }
 
+void LietKeDongSoHoanThienMax(int a[][100], int m, int n) {
+	int DemSHT = 0;
+	int DemDongSHT[100] = { 0 };
+
+	for (int i = 0; i < m; i++) {
+		int Dem = 0;
+		for (int j = 0; j < n; j++) {
+			if (SoHoanThien(a[i][j])) {
+				Dem++;
+			}
+		}
+		DemDongSHT[i] = Dem;
+		if (Dem > DemSHT) {
+			DemSHT = Dem;
+		}
+	}
+
+	printf("Cac dong co nhieu so hoan thien nhat trong ma tran: ");
+	for (int i = 0; i < m; i++) {
+		if (DemDongSHT[i] == DemSHT) {
+			printf("%d ", i);
+		}
+	}
+	printf("\n");
+}
+
 
 int main() {
 	int a[100][100];
@@ -77,5 +103,7 @@ int main() {
 	}
 
 	LietKeTongNhoNhat(a, m, n);
+
+	LietKeDongSoHoanThienMax(a, m, n);
 	return 0;
 }
