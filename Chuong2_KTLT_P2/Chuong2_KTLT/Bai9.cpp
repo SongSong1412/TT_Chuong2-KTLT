@@ -88,6 +88,18 @@ int TongDongk(int a[][100], int m, int n, int k) {
 	}
 	return tong;
 }
+
+int TongGiaTriBien(int a[][100], int m, int n) {
+	int tong = 0;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
+				tong += a[i][j];
+			}
+		}
+	}
+	return tong;
+}
 int main() {
 	int a[100][100];
 	int m, n;
@@ -117,5 +129,7 @@ int main() {
 	printf("Nhap dong k: ");
 	scanf("%d", &k);
 	printf("Tong gia tri tren dong k cua ma tran: %d\n", TongDongk(a, m, n, k));
+
+	printf("Tong cac gia tri nam tren bien cua ma tran: %d\n", TongGiaTriBien(a, m, n));
 	return 0;
 }
