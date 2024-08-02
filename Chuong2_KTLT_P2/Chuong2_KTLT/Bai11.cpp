@@ -47,6 +47,25 @@ void SapXepChanLe(int a[][100], int m, int n) {
 		}
 	}
 }
+
+void SapXepCotChanLe(int a[][100], int m, int n) {
+	for (int j = 0; j < n; j++) {
+		int col[100];
+		for (int i = 0; i < m; i++) {
+			col[i] = a[i][j];
+		}
+		if (j % 2 == 0) {
+			SapXepTang(col, m);
+		}
+		else {
+			SapXepGiam(col, m);
+		}
+		for (int i = 0; i < m; i++) {
+			a[i][j] = col[i];
+		}
+	}
+}
+
 int main() {
 	int a[100][100];
 	int m, n;
@@ -65,8 +84,19 @@ int main() {
 		}
 		printf("\n");
 	}
+
 	SapXepChanLe(a, m, n);
 	printf("Ma tran sau khi sap xep dong chan tang dong le giam:\n");
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			printf("%d ", a[i][j]);
+		}
+		printf("\n");
+	}
+
+	TaoMangNgauNhien(a, m, n);
+	SapXepCotChanLe(a, m, n);
+	printf("Ma tran sau khi sap xep cot chan tang cot le giam:\n");
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			printf("%d ", a[i][j]);
