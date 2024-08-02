@@ -82,6 +82,22 @@ void LietKeDongSoHoanThienMax(int a[][100], int m, int n) {
 	printf("\n");
 }
 
+void LietKeDongChan(int a[][100], int m, int n) {
+	printf("Cac dong chua toan gia tri chan: ");
+	for (int i = 0; i < m; i++) {
+		bool allEven = true;
+		for (int j = 0; j < n; j++) {
+			if (a[i][j] % 2 != 0) {
+				allEven = false;
+				break;
+			}
+		}
+		if (allEven) {
+			printf("%d", i);
+		}
+	}
+	printf("khong co dong nao chua gia tri toan chan\n");
+}
 
 int main() {
 	int a[100][100];
@@ -105,5 +121,7 @@ int main() {
 	LietKeTongNhoNhat(a, m, n);
 
 	LietKeDongSoHoanThienMax(a, m, n);
+
+	LietKeDongChan(a, m, n);
 	return 0;
 }
