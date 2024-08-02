@@ -99,6 +99,24 @@ void LietKeDongChan(int a[][100], int m, int n) {
 	printf("khong co dong nao chua gia tri toan chan\n");
 }
 
+void GiaTriXuatHienMax(int a[][100], int m, int n) {
+	int tanxuat[10000] = { 0 }; 
+	int tanxuatmax = 0;
+	int xuathiennhieu = a[0][0];
+
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			tanxuat[a[i][j]]++;
+			if (tanxuat[a[i][j]] > tanxuatmax) {
+				tanxuatmax = tanxuat[a[i][j]];
+				xuathiennhieu = a[i][j];
+			}
+		}
+	}
+
+	printf("Gia tri xuat hien nhieu nhat trong ma tran: %d\n", xuathiennhieu);
+}
+
 int main() {
 	int a[100][100];
 	int m, n;
@@ -123,5 +141,7 @@ int main() {
 	LietKeDongSoHoanThienMax(a, m, n);
 
 	LietKeDongChan(a, m, n);
+
+	GiaTriXuatHienMax(a, m, n);
 	return 0;
 }
