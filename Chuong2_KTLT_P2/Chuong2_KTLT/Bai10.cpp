@@ -158,6 +158,27 @@ void TimMaxMinDongk(int a[][100], int m, int n, int k) {
 	printf("Phan tu lon nhat trong dong thu %d: %d\n", k, somax);
 	printf("Phan tu nho nhat trong dong thu %d: %d\n", k, somin);
 }
+
+void TimMaxMinCotk(int a[][100], int m, int n, int k) {
+	if (k < 0 || k >= n) {
+		printf("Cot k khong hop le.\n");
+		return;
+	}
+
+	int somax = a[0][k];
+	int somin = a[0][k];
+	for (int i = 0; i < m; i++) {
+		if (a[i][k] > somax) {
+			somax = a[i][k];
+		}
+		if (a[i][k] < somin) {
+			somin = a[i][k];
+		}
+	}
+
+	printf("Phan tu lon nhat trong cot thu %d: %d\n", k, somax);
+	printf("Phan tu nho nhat trong cot thu %d: %d\n", k, somin);
+}
 int main() {
 	int a[100][100];
 	int m, n;
@@ -191,5 +212,11 @@ int main() {
 	printf("Nhap dong k: ");
 	scanf("%d", &k);
 	TimMaxMinDongk(a, m, n, k);
+
+	int c;
+	printf("Nhap cot k: ");
+	scanf("%d", &c);
+	TimMaxMinCotk(a, m, n, c);
+
 	return 0;
 }
