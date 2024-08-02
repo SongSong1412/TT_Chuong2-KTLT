@@ -117,6 +117,27 @@ void GiaTriXuatHienMax(int a[][100], int m, int n) {
 	printf("Gia tri xuat hien nhieu nhat trong ma tran: %d\n", xuathiennhieu);
 }
 
+void SoNguyenToMIN(int a[][100], int m, int n) {
+	int sntmin = INT_MAX;
+	bool found = false;
+
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			if (SoNguyenTo(a[i][j]) && a[i][j] < sntmin) {
+				sntmin = a[i][j];
+				found = true;
+			}
+		}
+	}
+
+	if (found) {
+		printf("So nguyen to nho nhat trong ma tran: %d\n", sntmin);
+	}
+	else {
+		printf("Khong co so nguyen to trong ma tran.\n");
+	}
+}
+
 int main() {
 	int a[100][100];
 	int m, n;
@@ -143,5 +164,8 @@ int main() {
 	LietKeDongChan(a, m, n);
 
 	GiaTriXuatHienMax(a, m, n);
+
+	SoNguyenToMIN(a, m, n);
+
 	return 0;
 }
